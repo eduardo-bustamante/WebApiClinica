@@ -34,13 +34,13 @@ namespace WebApiClinica.Services.Consulta
 
                 if (paciente == null)
                 {
-                    resposta.Mensagem = "Nenhum livro localizado";
+                    resposta.Mensagem = "Nenhum paciente localizado";
                     return resposta;
                 }
 
                 if (medico == null)
                 {
-                    resposta.Mensagem = "Nenhum registro de Autor localizado";
+                    resposta.Mensagem = "Nenhum registro de consulta localizada";
                     return resposta;
                 }
 
@@ -57,7 +57,7 @@ namespace WebApiClinica.Services.Consulta
                 await _context.SaveChangesAsync();
 
                 resposta.Dados = await _context.Consultas.ToListAsync();
-                resposta.Mensagem = "Livro Editado com sucecsso";
+                resposta.Mensagem = "Consulta editada com sucecsso";
 
                 return resposta;
 
@@ -75,9 +75,9 @@ namespace WebApiClinica.Services.Consulta
         {
             ResponseModel<List<ConsultaModel>> resposta = new ResponseModel<List<ConsultaModel>>();
             try
-            {
+                {
                 var medico = await _context.Medicos
-                    .FirstOrDefaultAsync(medicoBanco => medicoBanco.MedicoId == consultaCriacaoDto.Medico.MedicoId);
+                    .FirstOrDefaultAsync(medicoBanco => medicoBanco.MedicoId == consultaCriacaoDto.Medico.Id);
                 if (medico == null)
                 {
                     resposta.Mensagem = "Nenhum registro de Médico localizado";
@@ -85,7 +85,7 @@ namespace WebApiClinica.Services.Consulta
                 }
 
                 var paciente = await _context.Pacientes
-                     .FirstOrDefaultAsync(pacienteBanco => pacienteBanco.PacienteId == consultaCriacaoDto.Paciente.PacienteId);
+                     .FirstOrDefaultAsync(pacienteBanco => pacienteBanco.PacienteId == consultaCriacaoDto.Paciente.Id);
                 if (paciente == null)
                 {
                     resposta.Mensagem = "Nenhum registro de Paciente localizado";

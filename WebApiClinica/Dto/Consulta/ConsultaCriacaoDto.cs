@@ -8,9 +8,9 @@ namespace WebApiClinica.Dto.Consulta
         public string Descricao { get; set; }
         public string Status { get; set; } // Ex: Agendada, Realizada, Cancelada
 
-        public ConsultaPacienteDto Paciente { get; set; }
+        public ConsultaEdicaoId Paciente { get; set; }
 
-        public ConsultaMedicoDto Medico { get; set; }
+        public ConsultaEdicaoId Medico { get; set; }
 
     }
 }
