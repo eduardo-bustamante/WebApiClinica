@@ -1,6 +1,8 @@
 using Microsoft.EntityFrameworkCore;
 using System;
 using WebApiClinica.Data;
+using WebApiClinica.Models;
+using WebApiClinica.Services.Consulta;
 using WebApiClinica.Services.Medico;
 using WebApiClinica.Services.Paciente;
 
@@ -18,6 +20,8 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
 
 builder.Services.AddScoped<IPacienteService, PacienteService>();
 builder.Services.AddScoped<IMedicoService, MedicoService>();
+builder.Services.AddScoped<IConsultaService, ConsultaService>();
+
 
 var app = builder.Build();
 

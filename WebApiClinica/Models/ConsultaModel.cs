@@ -1,8 +1,10 @@
-﻿namespace WebApiClinica.Models
+﻿using System.Text.Json.Serialization;
+
+namespace WebApiClinica.Models
 {
     public class ConsultaModel
-    {   
-        
+    {
+
         public int ConsultaId { get; set; }
         public DateTime DataHora { get; set; }
         public string Descricao { get; set; }
